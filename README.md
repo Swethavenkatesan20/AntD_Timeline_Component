@@ -1,3 +1,7 @@
+Fix to be done in thursday discussion 
+ : seperate css files to component specific - re-structed and seperated css files to each component specific
+
+
 # my fix 
 
 1. proptype: fixed

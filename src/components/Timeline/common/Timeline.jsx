@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import checkPropTypes from 'prop-types/checkPropTypes';
+//import checkPropTypes from 'prop-types/checkPropTypes';
 
 //import TimelineItem from './TimelineItem';
 
