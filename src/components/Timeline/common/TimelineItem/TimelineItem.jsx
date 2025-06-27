@@ -27,11 +27,11 @@ const TimelineItem = ({
   index,
   hasLabelInTimeline,
 }) => {
-  if (import.meta.env.DEV) {
-    checkPropTypes(TimelineItem.propTypes, {
-      color, dot, label, children, position, isPending, mode, index
-    }, 'prop', 'TimelineItem');
-  }
+//   if (import.meta.env.DEV) {
+//     checkPropTypes(TimelineItem.propTypes, {
+//       color, dot, label, children, position, isPending, mode, index
+//     }, 'prop', 'TimelineItem');
+//   }
 
   // const hasLabel = !!label; getting layout issue if one item does not has label then that particular item getting defualt position
 

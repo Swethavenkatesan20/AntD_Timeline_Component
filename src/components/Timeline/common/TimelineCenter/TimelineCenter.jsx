@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 //import Dot from './Dot';
 
@@ -8,9 +8,13 @@ import './timelineCenter.css';
 import Dot from '../Dot/Dot';
 
 
-const TimelineCenter = ({ dot, color, isPending }) => {
+const TimelineCenter = ({ dot, color, isPending ,size = 'medium',className = '',...rest }) => {
+
+    const classes = useMemo(()=>{
+        return ['timeline-center',`size-${size}`,className].filter(Boolean).join(' ');
+    },[size,className])
   return (
-    <div className="timeline-center" role="presentation">
+    <div className={classes} role="presentation" {...rest}>
       <Dot dot={dot} color={color} isPending={isPending} />
       <div className="timeline-tail" aria-hidden="true" />
     </div>

@@ -5,9 +5,10 @@ import checkPropTypes from 'prop-types/checkPropTypes';
 //import TimelineItem from './TimelineItem';
 
 import './timeline.css';
-import LoadingOutlined from '../../../shared/LoadingOutlined';
+//import LoadingOutlined from '../../../shared/LoadingOutlined';
 import { itemShape, modeProp } from './propTypes';
 import TimelineItem from './TimelineItem/TimelineItem';
+import LoadingOutlined from '../shared/LoadingOutlined';
 
 const defaultBasicItems = [
   { children: 'Basic timeline item 1' },
@@ -24,14 +25,14 @@ const Timeline = ({
   defaultMode = 'left', // uncontrolled fallback
   onModeChange        // optional callback
 }) => {
-  if (import.meta.env.DEV) {
-    checkPropTypes(
-      Timeline.propTypes,
-      { items, pending, pendingDot, reverse, mode },
-      'prop',
-      'Timeline'
-    );
-  }
+  // if (import.meta.env.DEV) {
+  //   checkPropTypes(
+  //     Timeline.propTypes,
+  //     { items, pending, pendingDot, reverse, mode },
+  //     'prop',
+  //     'Timeline'
+  //   );
+  // }
 
   //  internal state for uncontrolled mode
   const [internalMode, setInternalMode] = useState(defaultMode);
@@ -63,8 +64,7 @@ const Timeline = ({
 
   return (
     <section className="timeline-wrapper">
-      {/* Optional */}
-      {/* <button onClick={() => handleModeChange('right')}>Change Mode</button> */}
+      
 
       <ol className={`timeline ${currentMode ? `timeline-${currentMode}` : ''}`}>
         {finalItems.map((item, index) => (

@@ -3,7 +3,12 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 const validPositions = ['content-left', 'content-right', ''];
-const TimelineContent = ({ children, position = 'left' ,size = 'medium',className = '', ...rest }) => {
+const TimelineContent = ({ 
+    children, 
+    position = 'left' ,
+    size = 'medium',
+    className = '',
+    ...rest }) => { 
   const safePosition = validPositions.includes(position) ? position : '';
   const classes = useMemo(()=>{
     return ['timeline-content', safePosition , `size-${size}`,
