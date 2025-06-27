@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import checkPropTypes from 'prop-types/checkPropTypes';
 
-import TimelineItem from './TimelineItem';
+//import TimelineItem from './TimelineItem';
+
 import './timeline.css';
 import LoadingOutlined from '../../../shared/LoadingOutlined';
 import { itemShape, modeProp } from './propTypes';
+import TimelineItem from './TimelineItem/TimelineItem';
 
 const defaultBasicItems = [
   { children: 'Basic timeline item 1' },

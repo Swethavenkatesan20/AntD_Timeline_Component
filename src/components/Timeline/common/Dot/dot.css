@@ -1,0 +1,26 @@
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--dot-size, 14px);
+    height: var(--dot-size, 14px);
+    border-radius: 50%;
+    background-color: var(--dot-bg, #ffffff);
+    box-sizing: border-box;
+    z-index: 1;
+  }
+  
+  /* Alternate mode */
+  .timeline-item.alternate .timeline-dot {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+  
+  /* Label mode */
+  .timeline-item-label .timeline-dot {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+  

@@ -1,15 +1,17 @@
+import './timelineContent.css';
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 const validPositions = ['content-left', 'content-right', ''];
-const TimelineContent = ({ children, position = 'left' }) => {
+const TimelineContent = ({ children, position = 'left' ,size = 'medium',className = '', ...rest }) => {
   const safePosition = validPositions.includes(position) ? position : '';
   const classes = useMemo(()=>{
-    return ['timeline-content', safePosition].filter(Boolean).join(' ');
-  },[position]) 
+    return ['timeline-content', safePosition , `size-${size}`,
+      className].filter(Boolean).join(' ');
+  },[safePosition,size,className]) 
 
   return (
-    <section className={classes} role="region" aria-label="Timeline Content">
+    <section className={classes}{...rest} role="region" aria-label="Timeline Content">
       {children}
     </section>
   );

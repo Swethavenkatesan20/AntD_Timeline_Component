@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Dot from './Dot';
+//import Dot from './Dot';
+
+
+import './timelineCenter.css';
+//import './timelineTail.css';
+import Dot from '../Dot/Dot';
+
 
 const TimelineCenter = ({ dot, color, isPending }) => {
   return (

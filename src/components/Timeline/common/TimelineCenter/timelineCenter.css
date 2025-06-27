@@ -1,0 +1,34 @@
+/* default tail position for basic, color, lastNode */
+.timeline-tail {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    height: 100%;
+    width: var(--tail-width, 2px);
+    background-color: var(--tail-color, rgba(5, 5, 5, 0.06));
+  }
+  
+  .timeline-item:last-child .timeline-tail {
+    height: 0;
+  }
+  
+  /* right aligned mode */
+  .timeline-item-right .timeline-tail {
+    left: auto;
+    right: 8px;
+  }
+  
+  /* pending dotted tail */
+  .timeline-item-pending .timeline-tail {
+    background-color: transparent;
+    border-left: 2px dotted var(--tail-color, rgba(5, 5, 5, 0.06));
+  }
+  
+
+  /* label */
+  .timeline-item-label .timeline-tail {
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  

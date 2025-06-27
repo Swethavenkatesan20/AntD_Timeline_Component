@@ -1,7 +1,9 @@
 
 import React from 'react';
-import SmileDot from '../../shared/SmileDot';
-import ClockDot from '../../shared/ClockDot';
+import ClockDot from '../Timeline/shared/ClockDot';
+import SmileDot from '../Timeline/shared/SmileDot';
+// import SmileDot from '../../shared/SmileDot';
+// import ClockDot from '../../shared/ClockDot';
 //import LoadingSpinner from '../../shared/LoadingOutlined';
 
 export const modeOptions = [
@@ -10,7 +12,7 @@ export const modeOptions = [
   { value: 'alternate', label: 'Alternate' },
 ];
 
-// === Right mode timeline (separate config) ===
+// right mode timeline 
 export const rightItems = [
   { children: 'Create a services site 2015-09-01' },
   { children: 'Solve initial network problems 2015-09-01' },
@@ -18,7 +20,7 @@ export const rightItems = [
   { children: 'Network problems solved 2015-09-01', color: 'red' },
 ];
 
-// === Label mode timeline ===
+// label mode timeline 
 export const labelItems = [
   { label: '2015-09-01', children: 'Create a services site' },
   { children: 'Solve initial network problems' },
@@ -26,7 +28,7 @@ export const labelItems = [
   { label: '2015-09-01 12:00:00', children: 'Network problems being solved' },
 ];
 
-// === Basic mode ===
+// basic mode
 export const basicItems = [
   { children: 'Create a services site 2015-09-01' },
   { children: 'Solve initial network problems 2015-09-01' },
@@ -34,7 +36,7 @@ export const basicItems = [
   { children: 'Network problems being solved 2015-09-01' },
 ];
 
-// === Color mode ===
+// color mode 
 export const colorItems = [
   { color: 'green', children: 'Create a services site 2015-09-01' },
   { color: 'green', children: 'Solve initial network problems 2015-09-01' },
@@ -45,7 +47,7 @@ export const colorItems = [
   },
 ];
 
-// === Last node + reverse mode ===
+// last node + reverse mode 
 export const lastNodeItems = [
   { children: 'Create a services site 2015-09-01' ,color:'red'},
   { children: 'Solve initial network problems 2015-09-01' },
@@ -53,7 +55,7 @@ export const lastNodeItems = [
   { children: 'Network problems being solved 2015-09-01' },
 ];
 
-// === Alternate mode ===
+// alternate mode 
 export const alternateItems = [
   { children: 'Create a services site 2015-09-01' },
   { children: 'Solve initial network problems 2015-09-01', color: 'green' },
@@ -63,7 +65,7 @@ export const alternateItems = [
   { children: 'Postmortem analysis 2015-09-02', dot: <ClockDot /> },
 ];
 
-// === Custom timeline ===
+// custom timeline
 export const customItems = [
   { children: 'Service initialization 2025-06-01' },
   { children: 'Internal training sessions' ,color:'green'},

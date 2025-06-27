@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './timelineLabel.css';
+
+
 const validPositions = ['left', 'right'];
 const TimelineLabel = ({ label, position = 'left' }) => {
   const safePos = validPositions.includes(position) ? position : 'left';

@@ -1,13 +1,15 @@
+import './dot.css';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { tokens } from '../../../tokens';
+//import { tokens } from '../../../tokens';
+import {tokens} from '../../../../tokens'
 
 const Dot = ({ dot, color = 'blue', isPending }) => {
   const tokenColor = tokens[`color${capitalize(color)}`] || color;
   const baseClass = ['timeline-dot', isPending ? 'timeline-dot-pending' : ''].filter(Boolean).join(' ');
 
   return (
-    <span
+    <div
       className={baseClass}
       role="presentation"
       style={dot ? undefined : {
@@ -16,7 +18,7 @@ const Dot = ({ dot, color = 'blue', isPending }) => {
       }}
     >
       {dot}
-    </span>
+    </div>
   );
 };
 

@@ -2,10 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import checkPropTypes from 'prop-types/checkPropTypes';
 
-import TimelineCenter from './TimelineCenter';
-import TimelineLabel from './TimelineLabel';
-import TimelineContent from './TimelineContent';
-import { positionPublicProp, modeProp } from './propTypes';
+// import TimelineCenter from './TimelineCenter';
+// import TimelineLabel from './TimelineLabel';
+// import TimelineContent from './TimelineContent';
+
+import TimelineCenter from '../TimelineCenter/TimelineCenter';
+import TimelineLabel from '../TimelineLabel/TimelineLabel';
+import TimelineContent from '../TimelineContent/TimelineContent';
+
+
+import { positionPublicProp, modeProp } from '../propTypes';
+
+import './timelineItem.css';
+
 
 const TimelineItem = ({
   color = 'blue',
