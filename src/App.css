@@ -1,0 +1,42 @@
+.app-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.timeline-demo {
+  flex: 1 1 calc(50% - 8px); /* two per row with spacing */
+  background-color: #fff;
+  border: 1px solid rgba(5, 5, 5, 0.06);
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .timeline-demo {
+    flex: 1 1 100%; /* full width on small screens */
+  }
+}
+
+.reverse-button {
+  margin-top: 12px;
+  padding: 6px 12px;
+  background-color: #1890ff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mode-selector {
+  margin-bottom: 12px;
+}
+
+.mode-option {
+  margin-right: 16px;
+}

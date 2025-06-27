@@ -1,0 +1,213 @@
+/* === BASE TIMELINE STYLES === */
+.timeline {
+  padding: 8px 0;
+  list-style: none;
+  margin: 0;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 30px;
+  padding-bottom: var(--item-padding-bottom, 20px);
+  font-size: var(--font-size, 14px);
+  font-family: var(--font-family);
+  min-height: 40px;
+  /* tail spacing */
+}
+
+.timeline-tail {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  height: 100%;
+  width: var(--tail-width, 2px);
+  background-color: var(--tail-color, rgba(5, 5, 5, 0.06));
+}
+
+.timeline-item:last-child .timeline-tail {
+  height: 0;
+}
+
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--dot-bg, #ffffff);
+  box-sizing: border-box;
+}
+
+.timeline-content {
+  color: var(--color-text, rgba(0, 0, 0, 0.88));
+  margin-left: 24px;
+}
+
+.timeline-label {
+  margin-bottom: 4px;
+  font-size: var(--font-size-sm, 12px);
+  color: var(--color-text, rgba(0, 0, 0, 0.88));
+}
+
+/* === RIGHT MODE === */
+.timeline-item-right .timeline-tail,
+.timeline-item-right .timeline-dot {
+  left: auto;
+  right: 8px;
+}
+
+.timeline-item-right .timeline-content {
+  margin-right: 24px;
+  text-align: right;
+}
+
+
+/* Dotted tail for pending node */
+.timeline-item-pending .timeline-tail {
+  background-color: transparent;
+  border-left: 2px dotted var(--tail-color, rgba(5, 5, 5, 0.06));
+}
+
+
+
+
+/* === ALTERNATE MODE === */
+.timeline.alternate {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 8px 0;
+  list-style: none;
+}
+
+.timeline-item.alternate {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: flex-start;
+  position: relative;
+  margin: 16px 0;
+  padding: 0;
+  min-height: 40px;
+}
+
+.timeline-item.alternate-left .timeline-content {
+  grid-column: 1;
+  text-align: right;
+  padding-right: 16px;
+}
+
+.timeline-item.alternate-right .timeline-content {
+  grid-column: 3;
+  text-align: left;
+  padding-left: 16px;
+}
+
+.timeline-item.alternate .timeline-center {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+
+.timeline-item.alternate .timeline-tail {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: var(--tail-width, 2px);
+  background-color: var(--tail-color, rgba(5, 5, 5, 0.06));
+}
+
+.timeline-item.alternate:last-child .timeline-tail {
+  height: 0;
+}
+
+
+
+.timeline-item.alternate .timeline-dot {
+  width: var(--dot-size, 14px);
+  height: var(--dot-size, 14px);
+  background-color: var(--dot-bg, #ffffff);
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+/* === LABEL MODE === */
+.timeline-item.timeline-item-label {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "left center right";
+  align-items: center;
+  padding: 0;
+  margin: 16px 0;
+  min-height: 40px;
+}
+
+/* Label (left-aligned) */
+.timeline-item-label .timeline-label.label-left {
+  grid-area: left;
+  text-align: right;
+  padding-right: 16px;
+}
+
+/* Label (right-aligned) */
+.timeline-item-label .timeline-label.label-right {
+  grid-area: right;
+  text-align: left;
+  padding-left: 8px;
+  align-self: center;
+}
+
+/* Content when label is on Right */
+.timeline-item-label .timeline-content.content-left {
+  grid-area: left;
+  text-align: right;
+  padding-right: 8px;
+  align-self: center;
+}
+
+/* Content when label is on Left */
+.timeline-item-label .timeline-content.content-right {
+  grid-area: right;
+  text-align: left;
+  padding-left: 16px;
+}
+
+/* Dot + Tail in the center */
+.timeline-item-label .timeline-center {
+  grid-area: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+
+.timeline-item-label .timeline-tail {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: var(--tail-width, 2px);
+  background-color: var(--tail-color, rgba(5, 5, 5, 0.06));
+}
+
+.timeline-item-label .timeline-dot {
+  width: var(--dot-size, 14px);
+  height: var(--dot-size, 14px);
+  background-color: var(--dot-bg, #ffffff);
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* .timeline-label.label-left { background: blue; }
+.timeline-label.label-right { background: red; } */
