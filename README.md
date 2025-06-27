@@ -80,3 +80,7 @@ i was handling set mode in app.jsx for mode chnage in label variant
 const [mode, setMode] = useState('left'); here if i am not passing initial left value then the timeline uses its own state this is fixed now.
 handled internal state as fallback uncontrolled state is now handled
 
+14. Missing Context Integration
+context is created and used for props passing
+
+

@@ -9,6 +9,7 @@ import './timeline.css';
 import { itemShape, modeProp } from './propTypes';
 import TimelineItem from './TimelineItem/TimelineItem';
 import LoadingOutlined from '../shared/LoadingOutlined';
+import TimelineContext from '../context/TimelineContext';
 
 const defaultBasicItems = [
   { children: 'Basic timeline item 1' },
@@ -63,22 +64,20 @@ const Timeline = ({
   const hasLabelInTimeline = items.some(item => item.label);
 
   return (
+    <TimelineContext.Provider value={{ mode: currentMode, hasLabelInTimeline }}>
     <section className="timeline-wrapper">
-      
-
       <ol className={`timeline ${currentMode ? `timeline-${currentMode}` : ''}`}>
         {finalItems.map((item, index) => (
-          <TimelineItem 
+          <TimelineItem
             key={index}
             {...item}
             index={index}
-            mode={currentMode}
             isLast={index === finalItems.length - 1}
-            hasLabelInTimeline={hasLabelInTimeline}
           />
         ))}
       </ol>
     </section>
+  </TimelineContext.Provider>
   );
 };
 

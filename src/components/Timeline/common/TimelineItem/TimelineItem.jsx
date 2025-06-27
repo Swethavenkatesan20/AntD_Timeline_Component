@@ -14,6 +14,7 @@ import TimelineContent from '../TimelineContent/TimelineContent';
 import { positionPublicProp, modeProp } from '../propTypes';
 
 import './timelineItem.css';
+import { useTimelineContext } from '../../context/TimelineContext';
 
 
 const TimelineItem = ({
@@ -23,10 +24,11 @@ const TimelineItem = ({
   children,
   position,
   isPending,
-  mode,
+  //mode,
   index,
-  hasLabelInTimeline,
+  //hasLabelInTimeline,
 }) => {
+  const { mode, hasLabelInTimeline } = useTimelineContext();
 //   if (import.meta.env.DEV) {
 //     checkPropTypes(TimelineItem.propTypes, {
 //       color, dot, label, children, position, isPending, mode, index
