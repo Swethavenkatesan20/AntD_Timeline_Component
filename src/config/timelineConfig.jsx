@@ -1,7 +1,7 @@
 
 import React from 'react';
-import ClockDot from '../Timeline/shared/ClockDot';
-import SmileDot from '../Timeline/shared/SmileDot';
+import ClockDot from '../components/StatusDot/ClockCircleOutlined';
+import SmileDot from '../components/StatusDot/SmileOutlined';
 // import SmileDot from '../../shared/SmileDot';
 // import ClockDot from '../../shared/ClockDot';
 //import LoadingSpinner from '../../shared/LoadingOutlined';

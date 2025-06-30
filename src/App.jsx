@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Timeline from './components/Timeline/common/Timeline';
+import Timeline from './components/Timeline/Timeline';
 import {
   labelItems,
   modeOptions,
@@ -9,7 +9,7 @@ import {
   alternateItems,
   customItems,
   rightItems,
-} from './components/config/timelineConfig';
+} from './config/timelineConfig';
 import './App.css';
 
 const App = () => {

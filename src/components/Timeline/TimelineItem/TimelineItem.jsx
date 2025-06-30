@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import checkPropTypes from 'prop-types/checkPropTypes';
+import { ARIA_LABELS } from '../../../constants/ariaLabels';
 
 // import TimelineCenter from './TimelineCenter';
 // import TimelineLabel from './TimelineLabel';
@@ -11,10 +12,13 @@ import TimelineLabel from '../TimelineLabel/TimelineLabel';
 import TimelineContent from '../TimelineContent/TimelineContent';
 
 
-import { positionPublicProp, modeProp } from '../propTypes';
+import { positionPublicProp, modeProp } from '../../../config/propTypes';
 
 import './timelineItem.css';
-import { useTimelineContext } from '../../context/TimelineContext';
+import { useTimelineContext } from '../../../context/TimelineContext';
+import { getContentPosition } from '../../../utils/timelineHelpers';
+
+
 
 
 const TimelineItem = ({
@@ -66,7 +70,7 @@ const TimelineItem = ({
   }
 
   return (
-    <li className={baseClass} role="listitem">
+    <li className={baseClass} role="listitem" aria-label={ARIA_LABELS.item}>
       {hasLabel ? (
         <>
           {/* {labelOnLeft && <TimelineLabel label={label} position="left" />}

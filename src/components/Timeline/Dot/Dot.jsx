@@ -2,7 +2,7 @@ import './dot.css';
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 //import { tokens } from '../../../tokens';
-import {tokens} from '../../../../tokens'
+import {tokens} from '../../../tokens/tokens'
 
 const Dot = ({ dot, color = 'blue', isPending }) => {
   const tokenColor = tokens[`color${capitalize(color)}`] || color;

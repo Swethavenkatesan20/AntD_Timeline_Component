@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import './timelineLabel.css';
+import { ARIA_LABELS } from '../../../constants/ariaLabels';
 
 
 const validPositions = ['left', 'right'];
@@ -22,8 +23,8 @@ const TimelineLabel = ({ label, position = 'left', size = 'medium',
   return (
     <aside
       className={classes}
-      role="note"
-      aria-label="Timeline Label"
+      role="region"
+      aria-label={ARIA_LABELS.content}
       {...rest}
     >
       {label}

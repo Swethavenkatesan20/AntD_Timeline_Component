@@ -1,9 +1,10 @@
-// shared/ClockDot.jsx
 import React from 'react';
-import './shared.css';
+import './StatusDot.css';
+import { ARIA_LABELS } from '../../constants/ariaLabels';
+
 
 const ClockDot = ({ color = 'currentColor' }) => (
-  <span className="custom-dot clock-dot" role="img" aria-label="clock">
+  <span className="custom-dot clock-dot" role="img" aria-label={ARIA_LABELS.clock}>
     <svg
       viewBox="64 64 896 896"
       focusable="false"

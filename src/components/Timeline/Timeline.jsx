@@ -6,10 +6,14 @@ import PropTypes from 'prop-types';
 
 import './timeline.css';
 //import LoadingOutlined from '../../../shared/LoadingOutlined';
-import { itemShape, modeProp } from './propTypes';
+import { itemShape, modeProp } from '../../config/propTypes';
 import TimelineItem from './TimelineItem/TimelineItem';
-import LoadingOutlined from '../shared/LoadingOutlined';
-import TimelineContext from '../context/TimelineContext';
+import TimelineContext from '../../context/TimelineContext';
+import LoadingOutlined from '../StatusDot/LoadingOutlined';
+import useTimelineMode from '../../hooks/useTimelineMode';
+import { ARIA_LABELS } from '../../constants/ariaLabels';
+import { hasAnyLabel, getReversedItems } from '../../utils/timelineHelpers';
+
 
 const defaultBasicItems = [
   { children: 'Basic timeline item 1' },
@@ -35,17 +39,22 @@ const Timeline = ({
   //   );
   // }
 
-  //  internal state for uncontrolled mode
-  const [internalMode, setInternalMode] = useState(defaultMode);
+  // //  internal state for uncontrolled mode - moved this to hook folder
+  // const [internalMode, setInternalMode] = useState(defaultMode);
 
-  //  final mode to use (controlled or fallback)
-  const currentMode = mode !== undefined ? mode : internalMode;
+  // const currentMode = mode !== undefined ? mode : internalMode;
 
-  //  optional handler to change mode
-  const handleModeChange = (newMode) => {
-    if (onModeChange) onModeChange(newMode);
-    else setInternalMode(newMode);
-  };
+  // const handleModeChange = (newMode) => {
+  //   if (onModeChange) onModeChange(newMode);
+  //   else setInternalMode(newMode);
+  // };
+
+
+  const [currentMode, setCurrentMode] = useTimelineMode(mode ?? defaultMode, onModeChange);
+
+
+
+
 
   let finalItems = [...(items || defaultBasicItems)];
 
@@ -57,15 +66,20 @@ const Timeline = ({
     });
   }
 
-  if (reverse) {
-    finalItems = finalItems.reverse();
-  }
+  // if (reverse) {
+  //   finalItems = finalItems.reverse();
+  // }
 
-  const hasLabelInTimeline = items.some(item => item.label);
+// instead of if reversed i am writing this as helper function
+  finalItems = getReversedItems(finalItems, reverse);
+
+
+  // const hasLabelInTimeline = items.some(item => item.label);
+  const hasLabelInTimeline = hasAnyLabel(items); 
 
   return (
     <TimelineContext.Provider value={{ mode: currentMode, hasLabelInTimeline }}>
-    <section className="timeline-wrapper">
+    <section className="timeline-wrapper" aria-label={ARIA_LABELS.timeline}>
       <ol className={`timeline ${currentMode ? `timeline-${currentMode}` : ''}`}>
         {finalItems.map((item, index) => (
           <TimelineItem

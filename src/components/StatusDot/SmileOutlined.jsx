@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const SmileDot = () => (
   <svg
     viewBox="64 64 896 896"
