@@ -48,21 +48,28 @@ const TimelineItem = ({
 
 
 
-  const isAlternate = mode === 'alternate';
+  // const isAlternate = mode === 'alternate';
+  // const isRight = mode === 'right';
+  // const isLeft = mode === 'left';
+
+  // const isAltLeft = isAlternate && index % 2 === 0;
+  // const isAltRight = isAlternate && index % 2 !== 0;
+
+  // const labelOnLeft = isLeft || isAltLeft;
+  // const labelOnRight = isRight || isAltRight;
+  const alternateSide=getContentPosition(mode, index)
   const isRight = mode === 'right';
-  const isLeft = mode === 'left';
+  const isAlternate = mode === 'alternate';
 
-  const isAltLeft = isAlternate && index % 2 === 0;
-  const isAltRight = isAlternate && index % 2 !== 0;
 
-  const labelOnLeft = isLeft || isAltLeft;
-  const labelOnRight = isRight || isAltRight;
+  const labelOnLeft = mode === 'alternate' ? alternateSide === 'left' : mode === 'left';
+  const labelOnRight = mode === 'alternate' ? alternateSide === 'right' : mode === 'right';
 
   let baseClass = 'timeline-item';
   if (hasLabel) {
     baseClass += ' timeline-item-label';
   } else if (isAlternate) {
-    baseClass += ` alternate ${isAltLeft ? 'alternate-left' : 'alternate-right'}`;
+    baseClass += ` alternate alternate-${alternateSide}`;
   } else if (isRight) {
     baseClass += ' timeline-item-right';
   } else {
@@ -79,15 +86,15 @@ const TimelineItem = ({
           {labelOnRight && <TimelineLabel label={thisItemHasLabel ? label : null} position="right" />}
 
           <TimelineCenter isPending={isPending} color={color} dot={dot} />
-          <TimelineContent position={labelOnLeft ? 'content-right' : labelOnRight ? 'content-left' : ''}>
-            {children}
+          <TimelineContent position={alternateSide === 'left' ? 'content-right' : 'content-left'}>
+          {children}
           </TimelineContent>
         </>
       ) : isAlternate ? (
         <>
-          {isAltLeft && <TimelineContent>{children}</TimelineContent>}
-          <TimelineCenter isPending={isPending} color={color} dot={dot} />
-          {isAltRight && <TimelineContent>{children}</TimelineContent>}
+          {alternateSide === 'left' && <TimelineContent>{children}</TimelineContent>}
+<TimelineCenter isPending={isPending} color={color} dot={dot} />
+{alternateSide === 'right' && <TimelineContent>{children}</TimelineContent>}
         </>
       ) : (
         <>

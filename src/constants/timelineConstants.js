@@ -5,7 +5,7 @@ export const MODES = [
 ];
 export const POSITIONS = [
     'left', 
-    'right'
+    'right',
 ];
 
 
